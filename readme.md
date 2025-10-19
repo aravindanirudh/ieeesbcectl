@@ -1,0 +1,11 @@
+# IEEE SB CECTL - College IEEE SB Website
+- The main landing page for IEEE SB College of Engineering, Cherthala in July 2024 when I was selected as Web Master for IEEE SB CECTL
+- Purpose of this page was to act as an official landing page for college as well as showcase events, Sunday Seconds (monthly magazine) and other important events/updates
+- Institute of Electrical and Electronics Engineers or IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. SB stands for Student Branch and CECTL stands for College of Engineering, Cherthala
+- Previous IEEE SB website was hosted on Wordpress. It was very unprofessional and overpriced
+- Previously, no one knew much about web development. This all changed when I was selected as Web Master. I took all the sections from Wordpress site and implemented them using HTML, CSS, JS
+- Website went through so many updates and imrpovements over the coming months and years. This particular version in GitHub is the state of the website on 28 September 2025
+- Search Engine Optimization (SEO) was implemented with the help of Google Search Console
+- AVIF image format used for maximum efficiency
+- Sensitive information/code redacted and replaced with placeholder
+- Domain ieeesbcectl.in was purchased on Blue Host. Website was hosted on Vercel through GitHub using ieeesbcectl999@gmail.com
