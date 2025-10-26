@@ -54,11 +54,11 @@ This is a static site - no build step or server is strictly required. You can op
 ---
 
 ## SEO & accessibility notes
-- Basic SEO implemented via metadata and Google Search Console. For better discoverability, ensure each page has unique <title>, <meta name="description">, and social sharing (Open Graph/Twitter) metadata.
+- Basic SEO implemented via metadata and Google Search Console. For better discoverability, ensure each page has unique <title>, <meta name="description">, and social sharing (Open Graph/Twitter) metadata
 - Accessibility recommendations:
-	- Provide meaningful alt text for images in `assets/`.
-	- Ensure color contrast meets WCAG AA for text and interactive elements.
-	- Use semantic HTML elements (nav, main, header, footer, article) where appropriate.
+	- Provide meaningful alt text for images in `assets/`
+	- Ensure color contrast meets WCAG AA for text and interactive elements
+	- Use semantic HTML elements (nav, main, header, footer, article) where appropriate
 
 ---
 
