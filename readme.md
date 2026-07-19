@@ -1,66 +1,27 @@
-# IEEE SB CECTL - College IEEE SB Website
-## Project Overview
-- This repository contains the static website for the IEEE Student Branch (SB) at College of Engineering, Cherthala (CECTL). The site was created and maintained as the official landing page for the student branch to showcase events, publications (Sunday Seconds), announcements, and other resources.
-- For live demo, check https://www.ieeesbcectl.in/
-- Institute of Electrical and Electronics Engineers or IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. SB stands for Student Branch and CECTL stands for College of Engineering, Cherthala.
-- The main landing page for IEEE SB College of Engineering, Cherthala in July 2024 when I was selected as Web Master for IEEE SB CECTL.
-- Purpose of this page was to act as an official landing page for college as well as showcase events, Sunday Seconds (monthly magazine) and other important events/updates.
-- Previous IEEE SB website was hosted on Wordpress. It was very unprofessional and overpriced.
-- Previously, no one knew much about web development. This all changed when I was selected as Web Master. I took all the sections from Wordpress site and implemented them using HTML, CSS, JS.
-- Website went through so many updates and improvements over the period of months and years. It is continuously being updated and this is not the production repository. The production repository was created for deployment under the email account of IEEESBCECTL. So, this repository might not be up to date. This particular version is the website's state as of 13 July 2026.
-- Search Engine Optimization (SEO) was implemented with the help of Google Search Console.
-- AVIF image format used for maximum efficiency.
-- Sensitive information/code redacted and replaced with placeholder.
-- Domain ieeesbcectl.in was purchased on Blue Host. Website was hosted on Vercel through GitHub using ieeesbcectl999@gmail.com.
+# IEEE SB CECTL Website Guidelines
 
----
+## Ideal Image Resolutions
 
-## Features
-- Clean, responsive static pages built with HTML, CSS and vanilla JavaScript.
-- Pages included: main landing (`index.html`), previous releases (`previous-releases.html`), Sunday Seconds magazine (`sunday-seconds.html`) and associated stylesheets.
-- Optimized images in AVIF format to reduce page weight and improve performance.
-- Basic SEO via metadata and Google Search Console integration.
-- Local assets folder organized for events, executive committee photos, and previous magazine issues.
+Based on the implementation details in `styles.css`, here are the exact resolutions you should be aiming for to save maximum bandwidth while keeping the images perfectly crisp on high-DPI (Retina) displays (which require 2x the rendered resolution).
 
----
+### 1. Execom Members Images
+The CSS strictly locks these cards to a tiny size:
+- `width: 160px;`
+- `aspect-ratio: 4 / 5;`
 
-## Repository structure
-Top-level files
-- `index.html` - main landing page
-- `previous-releases.html` - previous releases page
-- `sunday-seconds.html` - Sunday Seconds magazine page
-- `styles.css`, `previous-releases-styles.css`, `sunday-seconds-styles.css` - styles for pages
-- `scripts.js` - site JavaScript (menu, interactions, etc.)
-- `readme.md` - this file
+This means the images are rendered on the screen at exactly 160px by 200px.
+- **Ideal Upload Resolution:** 320 x 400 pixels (this accounts for the 2x Retina display scaling).
+- **Verdict:** Uploading a high-res photo for this is a massive waste of bandwidth, as the browser will aggressively crush it down to a 160x200 box anyway.
 
-Assets
-- `assets/` - all images used by the site. Subfolders include:
-	- `activities/` - event images
-	- `IEEE_Execom/` - executive committee member photos
-	- `previousSundaySeconds/` - magazine issue images
+### 2. Activities Card Images
+These cards are fluid and scale based on screen size:
+- The grid scales dynamically based on `minmax(300px, 1fr)`.
+- At maximum desktop stretch, the image height caps at 280px.
 
----
+Depending on the viewport, the card width fluctuates between ~300px and ~500px, and the max height caps at 280px.
+- **Ideal Upload Resolution:** 1000 x 560 pixels (or roughly any 16:9 equivalent under 1000px wide). This easily covers the maximum possible stretch (500px * 2 = 1000px) and height (280px * 2 = 560px).
+- **Verdict:** Because you are using `object-fit: contain;`, any resolution larger than ~1000px wide is completely unnecessary overhead.
 
-## How to run locally
-This is a static site - no build step or server is strictly required. You can open `index.html` directly in a browser, but using a simple static server is recommended to avoid some browser restrictions (e.g., CORS for local fetches).
-
----
-
-## Deployment notes
-- The site was hosted on Vercel and the domain `ieeesbcectl.in` was pointed to the Vercel deployment.
-- If deploying to Vercel: create a new project, connect the GitHub repo, and set the root directory to `/` (no build command required for pure static sites). Ensure that the `assets/` folder is included in the deployment.
-- If deploying to other hosts (Netlify, GitHub Pages, S3+CloudFront), adapt accordingly. For GitHub Pages, push to a branch configured for Pages (usually `gh-pages`) or configure Pages to use the `main` branch root.
-
----
-
-## SEO & accessibility notes
-- Basic SEO implemented via metadata and Google Search Console. For better discoverability, ensure each page has unique `<title>`, `<meta name="description">`, and social sharing (Open Graph/Twitter) metadata.
-- Accessibility recommendations:
-	- Provide meaningful alt text for images in `assets/`.
-	- Ensure color contrast meets WCAG AA for text and interactive elements.
-	- Use semantic HTML elements (nav, main, header, footer, article) where appropriate.
-
----
-
-## Contact
-- Project author: [Aravind A Kamath](https://github.com/aravindanirudh)
+### Summary Strategy for AVIF Workflow
+- **Execom:** Crop to 4:5 ratio, resize to 320x400, then convert to AVIF. These should easily be < 15KB each.
+- **Activities:** Resize width to a maximum of 1000px, then convert to AVIF. These should easily be < 50KB each.
