@@ -2917,16 +2917,55 @@ body {
 /* GitHub note box variant */
 .res-note-github {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  margin-top: 20px;
-  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+#youtube-channels {
+  margin-bottom: 24px;
+}
+
+.res-note-github a {
+  font-weight: bold;
 }
 
 .res-note-github ion-icon {
   font-size: 2.2rem;
   flex-shrink: 0;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.res-github-title {
+  margin-bottom: 2px;
+  font-size: 1.6rem;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.res-github-link {
+  font-weight: bold;
+  text-decoration: none;
+  transition: color var(--transition-1);
+  display: inline;
+}
+
+.res-github-link ion-icon {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -0.1em;
+}
+
+.res-github-link:hover,
+.res-github-link:focus-visible {
+  color: #f0f0f0;
+}
+
+.res-github-example {
   margin-top: 2px;
 }
 
@@ -2987,6 +3026,29 @@ body {
 }
 
 /* Channels grid responsive */
+.res-note-title {
+  color: white;
+}
+
+.res-channel-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--transition-1);
+}
+
+.res-channel-link ion-icon {
+  font-size: 1.15rem;
+  opacity: 0.7;
+}
+
+.res-channel-link:hover,
+.res-channel-link:focus-visible {
+  color: #f0f0f0;
+}
+
 @media (max-width: 599px) {
   .res-channels-grid {
     grid-template-columns: 1fr;
@@ -2995,8 +3057,8 @@ body {
 
 /* Disclaimer / fine print */
 .res-disclaimer {
-  margin-top: 56px;
-  padding: 20px 22px;
+  margin-top: 0;
+  padding: 14px 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.02);
@@ -3042,6 +3104,7 @@ body {
   .res-note-github {
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 24px;
   }
 }
 
